@@ -1,0 +1,988 @@
+{
+	"info": {
+		"_postman_id": "eefa6a0e-e197-4ba2-b197-e1a5ff6659dd",
+		"name": "nodejsShoppingCollections",
+		"description": "Collection contains postman test for testing NodeJS server apis.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PRODUCT",
+			"item": [
+				{
+					"name": "getProducts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d09971f9-211e-4042-80ac-0a5869adffd4",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"check data\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Butterfly\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"aparna91@gmail.com\",\n\t\"password\":\"abc\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "42f69ed1-446c-468e-9952-5e6647b1ab27",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"check data\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Lenovo\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Conatins GET API related to PRODUCT.",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "userSignup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fa0025cd-08d4-46cf-8842-eaa137c48944",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":5,\n\t\"firstName\":\"Abhinav\" ,\n    \"lastName\":\"Bindra\" ,\n    \"email\":\"abindra@gmail.com\" ,\n    \"phone\":\"2267778888\",\n    \"password\":\"abc\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userLogin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2729cb3e-6a83-4d2e-b202-f32b0e18e9d0",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"abindra@gmail.com\",\n\t\"password\":\"abc\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fa364b65-e1e5-48a3-bedc-620a8c115acb",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"check data\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Abhinav\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userUpdate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e2d29325-6ec9-45e8-a8f4-e7091d87ec29",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\":\"Jack\" ,\n    \"lastName\":\"Ryan\" ,\n    \"email\":\"jryan@gmail.com\" ,\n    \"phone\":\"2263456789\",\n    \"password\":\"123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ADDRESS",
+			"item": [
+				{
+					"name": "post address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "160343ba-1b54-4e08-8a65-d86763eb5652",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"check data\", function () {\r",
+									"    var json = pm.response.json();\r",
+									"     pm.expect(json.message).to.equal('Added successfully');\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\":1,\r\n\t\"address1\":\"2200 University Avenue East\",\r\n\t\"address2\":\"\",\r\n    \"postal\":\"N2K0A5\",\r\n    \"city\":\"Waterloo\",\r\n    \"province\":\"Ontario\",\r\n    \"country\":\"Canada\" \r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/address/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"address",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "address  fetch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f234f963-e341-483b-a039-64198ecd52e0",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"check data\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"retrieved all successfully\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/address/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"address",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9c406920-82a0-49dd-b3d3-cd13ca384fb0",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address1\":\"239 Auburn Drive\",\r\n\t\"address2\":\"\",\r\n    \"postal\":\"N2B0A7\",\r\n    \"city\":\"Waterloo\",\r\n    \"province\":\"Ontario\",\r\n    \"country\":\"Canada\" \r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/address/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"address",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "COMMENT",
+			"item": [
+				{
+					"name": "post comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0141ddfd-680b-4dab-8a32-c4abf8200f4d",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"rating\":4,\n\t\"comment\":\"Poor Quality. Got Broken Item\",\n\t\"productid\":1,\n\t\"imagePath\":\"picture.jpg\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/comment/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a6ed61a-47e5-42c8-ab70-42cf019624ec",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"check data\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Good\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/comment/all/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								"all",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "03c778d5-ae87-4dde-aafc-59b4f724f9c2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4ee97f3d-8156-4fc0-8f91-3026f9f00f56",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CART",
+			"item": [
+				{
+					"name": "post cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3e6188fb-d057-47d8-84b2-178039ece166",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"productid\":4,\n\t\"qty\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cart/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get cart all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7c94f808-6d8d-4b44-b5a6-d765dd26b402",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"rating\":8,\n\t\"comment\":\"very good stuff\",\n\t\"productid\":1,\n\t\"imagePath\":\"xyz.jpg\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/cart/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "86f2a460-0f7c-42e7-9a0d-031f0e4e71f6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "04805349-52d4-4c72-b2de-65327d939c3c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ORDER",
+			"item": [
+				{
+					"name": "order post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "926e1975-fc26-4dec-83bf-8a2117a79204",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"check data\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Added successfully\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"shippingAddressId\":1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/order/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "41783cce-b3be-44cb-a85a-eb563c6ccd9b",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"qty\":1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/order/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "deleteCart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "34693cfb-1179-4b4a-be8f-87d651fb10f4",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/cart/remove/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"remove",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAddress",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "806f6df2-5b5a-4e42-ab2b-dfe1d21425b2",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/address/remove/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"address",
+								"remove",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88ae860b-dcc3-4907-8d75-c0d3f9858da4",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logoutUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c515c1f-3822-4374-bdf7-ddcc63779876",
+								"exec": [
+									"pm.test(\"Check Status\", function () { \r",
+									"     var json = pm.response.json();\r",
+									"     pm.expect(json.status).to.equal(true);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
